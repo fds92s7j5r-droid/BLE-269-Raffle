@@ -320,6 +320,21 @@
       color:var(--gold2);
       overflow-wrap:anywhere;
     }
+    .copy-email-btn{
+      display:block;
+      width:100%;
+      margin:10px 0 2px;
+      padding:11px 14px;
+      border:1px solid #3a3a3a;
+      border-radius:11px;
+      background:#252525;
+      color:#fff;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .copy-email-btn:active{
+      transform:translateY(1px);
+    }
     .qr-wrap{
       margin-top:18px;
       width:min(100%,330px);
@@ -529,6 +544,9 @@
                 Send Zelle payment to:<br>
                 <strong>mgarziano@bledivision269.com</strong>
               </p>
+              <button class="copy-email-btn" id="copyEmailButton" type="button">
+                Click Here to Copy Email Address
+              </button>
             </div>
             <div>
               <div class="qr-wrap">
@@ -564,6 +582,39 @@
   </div>
 
   <script>
+    const copyEmailButton = document.getElementById('copyEmailButton');
+    const zelleEmail = 'mgarziano@bledivision269.com';
+
+    copyEmailButton.addEventListener('click', async () => {
+      const originalText = 'Click Here to Copy Email Address';
+
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(zelleEmail);
+        } else {
+          const textArea = document.createElement('textarea');
+          textArea.value = zelleEmail;
+          textArea.setAttribute('readonly', '');
+          textArea.style.position = 'fixed';
+          textArea.style.opacity = '0';
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+        }
+
+        copyEmailButton.textContent = 'Email Copied!';
+        setTimeout(() => {
+          copyEmailButton.textContent = originalText;
+        }, 1800);
+      } catch (_) {
+        copyEmailButton.textContent = 'Copy Failed — Select Email Above';
+        setTimeout(() => {
+          copyEmailButton.textContent = originalText;
+        }, 2200);
+      }
+    });
+
     const shareButton = document.getElementById('shareButton');
     shareButton.addEventListener('click', async () => {
       const shareData = {
