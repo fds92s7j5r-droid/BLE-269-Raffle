@@ -3,51 +3,49 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#090909" />
+  <meta name="theme-color" content="#0b0b0b" />
   <meta name="description" content="2026 BLE Division 269 Raffle supporting the annual retirement dinner and scholarship fund." />
   <meta property="og:title" content="2026 BLE Division 269 Raffle" />
-  <meta property="og:description" content="$5 per ticket or $20 for six. Support the annual retirement dinner and scholarship fund." />
+  <meta property="og:description" content="$5 each or $20 for 6. Support the annual retirement dinner and scholarship fund." />
   <title>2026 BLE Division 269 Raffle</title>
   <style>
     :root{
-      --black:#090909;
-      --panel:#151515;
-      --panel-soft:#1b1b1b;
+      --bg:#0b0b0b;
+      --panel:#161616;
+      --panel2:#1d1d1d;
       --gold:#e0ad20;
-      --gold-bright:#f1c443;
-      --cream:#f4efe4;
-      --white:#fff;
-      --muted:#b9b9b9;
+      --gold2:#f0c54e;
+      --text:#ffffff;
+      --muted:#c8c8c8;
       --line:rgba(224,173,32,.28);
-      --radius:20px;
-      --shadow:0 16px 40px rgba(0,0,0,.28);
+      --cream:#f4efe4;
+      --radius:22px;
+      --shadow:0 16px 40px rgba(0,0,0,.30);
     }
-
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      background:var(--black);
-      color:var(--white);
+      background:var(--bg);
+      color:var(--text);
       font-family:Arial,Helvetica,sans-serif;
       line-height:1.5;
     }
-
     img{display:block;max-width:100%}
     a{color:inherit}
     button{font:inherit}
-    .wrap{width:min(100% - 28px, 900px);margin-inline:auto}
+    .wrap{width:min(100% - 28px, 980px);margin-inline:auto}
 
     .topbar{
       position:sticky;
       top:0;
-      z-index:20;
-      background:rgba(9,9,9,.94);
+      z-index:30;
+      background:rgba(11,11,11,.94);
       border-bottom:1px solid var(--line);
       backdrop-filter:blur(12px);
     }
     .topbar-inner{
-      min-height:68px;
+      min-height:72px;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -56,58 +54,51 @@
     .brand{
       display:flex;
       align-items:center;
-      gap:11px;
+      gap:12px;
       text-decoration:none;
       min-width:0;
     }
     .brand img{
-      width:44px;
-      height:44px;
-      object-fit:cover;
-      border-radius:7px;
+      width:50px;
+      height:50px;
+      object-fit:contain;
+      border-radius:8px;
+      background:#000;
+      padding:2px;
+      flex:0 0 auto;
     }
-    .brand-copy{
-      line-height:1.05;
-      min-width:0;
-    }
+    .brand-copy{line-height:1.03;min-width:0}
     .brand-copy strong{
       display:block;
-      font-size:14px;
-      letter-spacing:.02em;
+      font-size:15px;
+      letter-spacing:.015em;
     }
     .brand-copy span{
       display:block;
       margin-top:4px;
-      color:var(--gold-bright);
+      color:var(--gold2);
       font-size:11px;
       font-weight:900;
+      letter-spacing:.11em;
       text-transform:uppercase;
-      letter-spacing:.1em;
     }
-    .top-pay{
+    .top-cta{
       text-decoration:none;
       background:var(--gold);
       color:#111;
       font-weight:900;
-      padding:10px 14px;
+      padding:11px 15px;
       border-radius:999px;
       white-space:nowrap;
     }
 
     .hero{
-      padding:48px 0 30px;
+      padding:42px 0 18px;
       text-align:center;
-    }
-    .hero-logo{
-      width:78px;
-      height:78px;
-      object-fit:cover;
-      border-radius:12px;
-      margin:0 auto 20px;
     }
     .eyebrow{
       margin:0 0 8px;
-      color:var(--gold-bright);
+      color:var(--gold2);
       font-size:12px;
       font-weight:900;
       letter-spacing:.11em;
@@ -116,33 +107,15 @@
     h1{
       margin:0 auto;
       max-width:760px;
-      font-size:clamp(38px,8vw,64px);
-      line-height:.98;
+      font-size:clamp(34px,7vw,60px);
+      line-height:1;
       letter-spacing:-.045em;
     }
     .lede{
-      max-width:680px;
-      margin:18px auto 0;
-      color:#dedede;
+      max-width:700px;
+      margin:16px auto 0;
+      color:#e2e2e2;
       font-size:18px;
-    }
-    .price-row{
-      margin:25px auto 0;
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-    .price-chip{
-      border:1px solid var(--line);
-      background:var(--panel);
-      border-radius:999px;
-      padding:10px 15px;
-      font-weight:800;
-    }
-    .price-chip strong{
-      color:var(--gold-bright);
-      font-size:19px;
     }
     .hero-actions{
       display:flex;
@@ -152,67 +125,186 @@
       margin-top:22px;
     }
 
-    .cta{
+    .btn{
       display:inline-flex;
-      align-items:center;
       justify-content:center;
+      align-items:center;
       min-height:52px;
-      padding:14px 19px;
+      padding:14px 18px;
       border:0;
       border-radius:14px;
-      background:var(--gold);
-      color:#111;
+      text-decoration:none;
       font-weight:900;
       font-size:17px;
-      text-decoration:none;
       cursor:pointer;
-      box-shadow:0 10px 28px rgba(224,173,32,.16);
     }
-    .cta.secondary{
+    .btn.primary{
+      background:var(--gold);
+      color:#111;
+      box-shadow:0 10px 28px rgba(224,173,32,.18);
+    }
+    .btn.secondary{
       background:#232323;
       color:#fff;
       border:1px solid #3b3b3b;
-      box-shadow:none;
     }
 
     section{padding:18px 0}
     .section-title{
-      margin:0;
-      font-size:28px;
+      margin:0 0 6px;
+      font-size:29px;
       letter-spacing:-.025em;
     }
     .section-copy{
-      margin:8px 0 0;
+      margin:0;
       color:var(--muted);
     }
 
-    .payment{
-      background:linear-gradient(180deg,#181818,#111);
-      border:1px solid var(--gold);
-      border-radius:26px;
-      padding:24px;
+    .image-stack{
+      display:grid;
+      gap:16px;
+    }
+    .image-card{
+      background:#121212;
+      border:1px solid #242424;
+      border-radius:20px;
+      overflow:hidden;
       box-shadow:var(--shadow);
     }
+    .image-card img{
+      width:100%;
+      height:auto;
+      object-fit:contain; /* keep unchanged, no cropping */
+      background:#0f0f0f;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:16px;
+    }
+    .card{
+      background:var(--panel);
+      border:1px solid #2c2c2c;
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+    .card.light{
+      background:var(--cream);
+      color:#111;
+      border-color:transparent;
+    }
+    .label{
+      color:var(--gold2);
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.11em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+    .light .label{color:#8f6800}
+    .card h2{
+      margin:0 0 10px;
+      font-size:25px;
+      line-height:1.1;
+    }
+    .card p{margin:8px 0}
+    .price-prize-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+    .mini{
+      background:var(--panel2);
+      border:1px solid #2f2f2f;
+      border-radius:16px;
+      padding:16px;
+    }
+    .mini h3{
+      margin:0 0 8px;
+      font-size:16px;
+      color:var(--gold2);
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+    .price-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:16px;
+      padding:10px 0;
+      border-bottom:1px solid #2f2f2f;
+    }
+    .price-row:last-child{border-bottom:0}
+    .price-row strong{
+      font-size:33px;
+      line-height:1;
+    }
+    .price-row span{
+      color:#d3d3d3;
+      text-align:right;
+    }
+    .prize-list{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:10px;
+    }
+    .prize-list li{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:18px;
+      padding:7px 0;
+      border-bottom:1px solid #2f2f2f;
+    }
+    .prize-list li:last-child{border-bottom:0}
+    .prize-list span{color:#d1d1d1}
+    .prize-list strong{font-size:28px}
+
+    .drawing-date{
+      font-size:28px;
+      font-weight:900;
+      line-height:1.15;
+    }
+    .place{
+      color:#d8d8d8;
+      font-size:17px;
+      margin-top:7px;
+    }
+
     .payment-grid{
       display:grid;
       grid-template-columns:1fr;
-      gap:22px;
-      align-items:center;
+      gap:16px;
     }
-    .payment p{
-      margin:12px 0 0;
-      font-size:17px;
+    address{
+      font-style:normal;
+      font-weight:800;
+      line-height:1.5;
     }
-    .payment .cta{
-      margin-top:18px;
+    .next-note{
+      color:#d7d7d7;
+      margin-top:10px;
+    }
+
+    .zelle-card{
+      background:linear-gradient(180deg,#181818,#111);
+      border:1px solid var(--gold);
+    }
+    .zelle-card .btn{
+      margin-top:12px;
       width:100%;
     }
     .qr-wrap{
+      margin-top:18px;
       width:min(100%,330px);
-      margin:auto;
       background:#fff;
       padding:14px;
       border-radius:16px;
+      margin-inline:auto;
     }
     .qr-wrap img{
       width:100%;
@@ -221,98 +313,26 @@
     }
     .scan-label{
       text-align:center;
+      margin-top:10px;
       color:var(--muted);
       font-size:13px;
-      margin-top:9px;
-    }
-
-    .details{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:13px;
-    }
-    .detail-card{
-      background:var(--panel);
-      border:1px solid #2e2e2e;
-      border-radius:var(--radius);
-      padding:21px;
-    }
-    .detail-card.gold-border{border-color:var(--line)}
-    .detail-card.light{
-      background:var(--cream);
-      color:#111;
-      border-color:transparent;
-    }
-    .detail-label{
-      color:var(--gold-bright);
-      font-size:11px;
-      font-weight:900;
-      letter-spacing:.1em;
-      text-transform:uppercase;
-      margin-bottom:7px;
-    }
-    .light .detail-label{color:#896400}
-    .detail-card h2{
-      margin:0 0 12px;
-      font-size:23px;
-      line-height:1.1;
-    }
-    .detail-card p{margin:8px 0}
-    .prize-list{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:grid;
-      gap:8px;
-    }
-    .prize-list li{
-      display:flex;
-      justify-content:space-between;
-      align-items:baseline;
-      gap:18px;
-      padding:9px 0;
-      border-bottom:1px solid #303030;
-    }
-    .prize-list li:last-child{border-bottom:0}
-    .prize-list span{color:#c9c9c9}
-    .prize-list strong{
-      font-size:25px;
-      color:#fff;
-    }
-    address{
-      font-style:normal;
-      font-weight:800;
-      line-height:1.5;
-    }
-    .date{
-      font-size:25px;
-      font-weight:900;
-      line-height:1.15;
-    }
-    .place{
-      margin-top:7px;
-      color:#d2d2d2;
-      font-size:17px;
     }
 
     .thanks{
       text-align:center;
       padding:28px 20px;
-      border-top:1px solid #272727;
-      margin-top:12px;
+      border-top:1px solid #262626;
+      margin-top:10px;
     }
-    .thanks h2{
-      margin:0 0 8px;
-      font-size:25px;
-    }
+    .thanks h2{margin:0 0 10px;font-size:26px}
     .thanks p{
-      max-width:620px;
+      max-width:680px;
       margin:0 auto 18px;
       color:var(--muted);
     }
 
     footer{
-      padding:25px 0 92px;
+      padding:24px 0 92px;
       text-align:center;
       color:#777;
       font-size:12px;
@@ -324,111 +344,82 @@
       left:12px;
       right:12px;
       bottom:calc(12px + env(safe-area-inset-bottom));
-      z-index:30;
+      z-index:40;
     }
     .sticky-pay a{
       display:flex;
       width:100%;
+      min-height:52px;
       justify-content:center;
       align-items:center;
-      min-height:52px;
       border-radius:15px;
       background:var(--gold);
       color:#111;
-      text-decoration:none;
       font-weight:950;
+      text-decoration:none;
       box-shadow:0 12px 32px rgba(0,0,0,.5);
     }
 
-    @media (min-width:720px){
-      .wrap{width:min(100% - 48px, 920px)}
-      .hero{padding:68px 0 38px}
-      .payment{padding:30px}
-      .payment-grid{grid-template-columns:1fr .72fr;gap:34px}
-      .details{grid-template-columns:repeat(2,1fr)}
-      .details .prizes{grid-row:span 2}
-      .payment .cta{width:auto}
+    @media (min-width:760px){
+      .wrap{width:min(100% - 48px, 1020px)}
+      .hero{padding:60px 0 24px}
+      .price-prize-grid{grid-template-columns:1fr 1fr}
+      .info-grid{grid-template-columns:1fr 1fr}
+      .payment-grid{grid-template-columns:1fr 1fr}
+      .zelle-card{grid-column:1 / -1}
+      .zelle-flex{
+        display:grid;
+        grid-template-columns:1fr .78fr;
+        gap:26px;
+        align-items:center;
+      }
+      .zelle-card .btn{width:auto}
     }
-
-    @media (max-width:719px){
-      .top-pay{display:none}
+    @media (max-width:759px){
+      .top-cta{display:none}
       .sticky-pay{display:block}
-      .hero{padding-top:38px}
-      .hero-logo{width:68px;height:68px}
+      .hero{padding-top:36px}
       .lede{font-size:16px}
-      .payment{padding:20px}
     }
   </style>
 </head>
-
 <body>
   <div class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="#top" aria-label="BLE Division 269 Raffle home">
-        <img src="assets/ble-logo.jpg" alt="BLE&T Division 269 logo" />
+        <img src="assets/ble-logo-fixed.jpg" alt="BLE&T Division 269 logo" />
         <div class="brand-copy">
           <strong>BLE&T Division 269</strong>
           <span>2026 Raffle</span>
         </div>
       </a>
-      <a class="top-pay" href="#pay">Buy Tickets</a>
+      <a class="top-cta" href="#zelle">Buy Tickets</a>
     </div>
   </div>
 
   <main id="top">
     <header class="hero">
       <div class="wrap">
-        <img class="hero-logo" src="assets/ble-logo.jpg" alt="" aria-hidden="true" />
         <p class="eyebrow">Retirement Dinner + Scholarship Fund</p>
         <h1>2026 BLE Division 269 Raffle</h1>
         <p class="lede">
           Help support the BLE Division 269 annual retirement dinner and scholarship fund.
         </p>
-
-        <div class="price-row" aria-label="Raffle ticket prices">
-          <div class="price-chip"><strong>$5</strong> per ticket</div>
-          <div class="price-chip"><strong>$20</strong> for six</div>
-        </div>
-
         <div class="hero-actions">
-          <a class="cta" href="#pay">Purchase Tickets</a>
-          <a class="cta secondary" href="#details">Raffle Details</a>
+          <a class="btn primary" href="#zelle">Purchase Tickets</a>
+          <a class="btn secondary" href="#details">Raffle Details</a>
         </div>
       </div>
     </header>
 
-    <section id="pay" aria-labelledby="pay-heading">
+    <section aria-label="Raffle images">
       <div class="wrap">
-        <div class="payment">
-          <div class="payment-grid">
-            <div>
-              <p class="eyebrow">Pay with Zelle</p>
-              <h2 class="section-title" id="pay-heading">Purchase Your Tickets</h2>
-              <p>
-                Send your payment using the button or QR code. Please include your
-                <strong>name, phone number, and number of tickets</strong>.
-              </p>
-
-              <a
-                class="cta"
-                href="https://enroll.zellepay.com/qr-codes?data=eyJuYW1lIjoiQlJPVEhFUkhPT0QgT0YgTE9DT01PVElWRSBFTkdJTkVFUlMgQU5EIiwiYWN0aW9uIjoicGF5bWVudCIsInRva2VuIjoibWdhcnppYW5vQGJsZWRpdmlzaW9uMjY5LmNvbSJ9"
-                target="_blank"
-                rel="noopener"
-              >Pay with Zelle</a>
-            </div>
-
-            <div>
-              <a
-                class="qr-wrap"
-                href="https://enroll.zellepay.com/qr-codes?data=eyJuYW1lIjoiQlJPVEhFUkhPT0QgT0YgTE9DT01PVElWRSBFTkdJTkVFUlMgQU5EIiwiYWN0aW9uIjoicGF5bWVudCIsInRva2VuIjoibWdhcnppYW5vQGJsZWRpdmlzaW9uMjY5LmNvbSJ9"
-                target="_blank"
-                rel="noopener"
-                aria-label="Open Zelle payment page"
-              >
-                <img src="assets/zelle-qr.jpg" alt="Zelle QR code for BLE Division 269 raffle payment" />
-              </a>
-              <div class="scan-label">Scan with your banking app</div>
-            </div>
+        <div class="image-stack">
+          <div class="image-card">
+            <img src="assets/raffle-flyer.jpg" alt="BLE Division 269 raffle flyer image" />
+          </div>
+          <div class="image-card">
+            <img src="assets/raffle-ticket.jpg" alt="BLE Division 269 raffle ticket image" />
           </div>
         </div>
       </div>
@@ -436,27 +427,46 @@
 
     <section id="details" aria-label="Raffle details">
       <div class="wrap">
-        <div class="details">
-
-          <div class="detail-card gold-border prizes">
-            <div class="detail-label">Cash Prizes</div>
-            <h2>Prizes</h2>
-            <ul class="prize-list">
-              <li><span>1st Prize</span><strong>$500</strong></li>
-              <li><span>2nd Prize</span><strong>$250</strong></li>
-              <li><span>3rd Prize</span><strong>$100</strong></li>
-            </ul>
+        <div class="card">
+          <div class="label">Tickets + Cash Prizes</div>
+          <h2 class="section-title">Ticket Prices and Prize Information</h2>
+          <div class="price-prize-grid">
+            <div class="mini">
+              <h3>Ticket Prices</h3>
+              <div class="price-row">
+                <strong>$5</strong>
+                <span>each ticket</span>
+              </div>
+              <div class="price-row">
+                <strong>$20</strong>
+                <span>for 6 tickets</span>
+              </div>
+            </div>
+            <div class="mini">
+              <h3>Cash Prizes</h3>
+              <ul class="prize-list">
+                <li><span>1st Prize</span><strong>$500</strong></li>
+                <li><span>2nd Prize</span><strong>$250</strong></li>
+                <li><span>3rd Prize</span><strong>$100</strong></li>
+              </ul>
+            </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="detail-card">
-            <div class="detail-label">Drawing</div>
+    <section aria-label="Drawing and payment information">
+      <div class="wrap">
+        <div class="info-grid">
+          <div class="card">
+            <div class="label">Drawing Details</div>
             <h2>Annual Retirement Dinner</h2>
-            <div class="date">Saturday, November 7, 2026</div>
+            <div class="drawing-date">Saturday, November 7, 2026</div>
             <div class="place">Villa Lombardi’s • Holbrook, NY</div>
           </div>
 
-          <div class="detail-card light">
-            <div class="detail-label">Pay by Check</div>
+          <div class="card light">
+            <div class="label">Pay by Check</div>
             <h2>Prefer to Mail a Check?</h2>
             <address>
               BLE Entertainment Committee<br />
@@ -464,10 +474,41 @@
               Ronkonkoma, NY 11779
             </address>
             <p>
-              Include your <strong>name, phone number, and number of tickets</strong> with your check.
+              Please include your <strong>name, phone number, and number of tickets</strong> with your check.
+            </p>
+            <p class="next-note">
+              Or continue below for the Zelle QR code.
             </p>
           </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="zelle" aria-label="Zelle payment">
+      <div class="wrap">
+        <div class="card zelle-card">
+          <div class="zelle-flex">
+            <div>
+              <div class="label">Pay with Zelle</div>
+              <h2>Purchase Your Tickets</h2>
+              <p>
+                Please use the Zelle QR code below to purchase your tickets.
+                When sending your payment, include your <strong>name, phone number, and number of tickets</strong>.
+              </p>
+              <a
+                class="btn primary"
+                href="https://enroll.zellepay.com/qr-codes?data=eyJuYW1lIjoiQlJPVEhFUkhPT0QgT0YgTE9DT01PVElWRSBFTkdJTkVFUlMgQU5EIiwiYWN0aW9uIjoicGF5bWVudCIsInRva2VuIjoibWdhcnppYW5vQGJsZWRpdmlzaW9uMjY5LmNvbSJ9"
+                target="_blank"
+                rel="noopener"
+              >Pay with Zelle</a>
+            </div>
+            <div>
+              <div class="qr-wrap">
+                <img src="assets/zelle-qr.jpg" alt="Zelle QR code for BLE Division 269 raffle payment" />
+              </div>
+              <div class="scan-label">Scan with your banking app</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -478,9 +519,9 @@
           <h2>Thank You for Your Support!</h2>
           <p>
             Thank you for supporting the BLE Division 269 Entertainment and Scholarship Fund.
-            Please share this raffle with family, friends, and coworkers who may be interested.
+            Please share this link with your family, friends, and coworkers who may be interested in participating.
           </p>
-          <button class="cta secondary" id="shareButton" type="button">Share This Raffle</button>
+          <button class="btn secondary" id="shareButton" type="button">Share This Raffle</button>
         </div>
       </div>
     </section>
@@ -491,19 +532,17 @@
   </footer>
 
   <div class="sticky-pay">
-    <a href="#pay">Buy Raffle Tickets</a>
+    <a href="#zelle">Buy Raffle Tickets</a>
   </div>
 
   <script>
     const shareButton = document.getElementById('shareButton');
-
     shareButton.addEventListener('click', async () => {
       const shareData = {
         title: '2026 BLE Division 269 Raffle',
         text: 'Support the BLE Division 269 annual retirement dinner and scholarship fund.',
         url: window.location.href
       };
-
       try {
         if (navigator.share) {
           await navigator.share(shareData);
@@ -511,9 +550,7 @@
           await navigator.clipboard.writeText(window.location.href);
           const oldText = shareButton.textContent;
           shareButton.textContent = 'Link Copied!';
-          setTimeout(() => {
-            shareButton.textContent = oldText;
-          }, 1800);
+          setTimeout(() => shareButton.textContent = oldText, 1800);
         }
       } catch (_) {}
     });
