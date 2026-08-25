@@ -439,7 +439,7 @@
   <div class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="#top" aria-label="BLE Division 269 Raffle home">
-        <img src="assets/ble-logo-fixed.jpg?v=20260824-v36" alt="BLE&T Division 269 logo" />
+        <img src="assets/ble-logo-fixed.jpg?v=20260824-v37" alt="BLE&T Division 269 logo" />
         <div class="brand-copy">
           <strong>BLE&T Division 269</strong>
           <span>2026 Raffle</span>
@@ -469,10 +469,10 @@
       <div class="wrap">
         <div class="image-stack">
           <div class="image-card">
-            <img src="assets/raffle-flyer.jpg?v=20260824-v36" alt="BLE Division 269 raffle flyer image" />
+            <img src="assets/raffle-flyer.jpg?v=20260824-v37" alt="BLE Division 269 raffle flyer image" />
           </div>
           <div class="image-card">
-            <img src="assets/raffle-ticket.jpg?v=20260824-v36" alt="BLE Division 269 raffle ticket image" />
+            <img src="assets/raffle-ticket.jpg?v=20260824-v37" alt="BLE Division 269 raffle ticket image" />
           </div>
         </div>
       </div>
@@ -605,12 +605,34 @@
   </main>
 
   <footer>
-    <div class="wrap">BLE&T Division 269 • 2026 Raffle • Site Version 20260824-v36</div>
+    <div class="wrap">BLE&T Division 269 • 2026 Raffle • Site Version 20260824-v37</div>
   </footer>
 
   <div class="sticky-pay">
     <a href="#zelle">Buy Raffle Tickets</a>
   </div>
+
+  <script>
+    // Lightweight update check. version.json is fetched with a cache-busting
+    // timestamp so returning visitors can be sent to the newest page version.
+    const SITE_VERSION = '20260824-v37';
+
+    (async () => {
+      try {
+        const response = await fetch('version.json?t=' + Date.now(), { cache: 'no-store' });
+        if (!response.ok) return;
+
+        const data = await response.json();
+        if (data.version && data.version !== SITE_VERSION) {
+          const url = new URL(window.location.href);
+          url.searchParams.set('v', data.version);
+          window.location.replace(url.toString());
+        }
+      } catch (_) {
+        // If the version check fails, the site continues normally.
+      }
+    })();
+  </script>
 
   <script>
     const copyEmailButton = document.getElementById('copyEmailButton');
