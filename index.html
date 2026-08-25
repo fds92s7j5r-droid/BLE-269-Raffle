@@ -369,25 +369,6 @@
       color:var(--muted);
       font-size:13px;
     }
-    .qr-wrap{
-      margin-top:18px;
-      width:min(100%,330px);
-      background:#fff;
-      padding:14px;
-      border-radius:16px;
-      margin-inline:auto;
-    }
-    .qr-wrap img{
-      width:100%;
-      aspect-ratio:1;
-      object-fit:contain;
-    }
-    .scan-label{
-      text-align:center;
-      margin-top:10px;
-      color:var(--muted);
-      font-size:13px;
-    }
 
     .thanks{
       text-align:center;
@@ -458,7 +439,7 @@
   <div class="topbar">
     <div class="wrap topbar-inner">
       <a class="brand" href="#top" aria-label="BLE Division 269 Raffle home">
-        <img src="assets/ble-logo-fixed.jpg?v=20260824-v35" alt="BLE&T Division 269 logo" />
+        <img src="assets/ble-logo-fixed.jpg?v=20260824-v36" alt="BLE&T Division 269 logo" />
         <div class="brand-copy">
           <strong>BLE&T Division 269</strong>
           <span>2026 Raffle</span>
@@ -488,10 +469,10 @@
       <div class="wrap">
         <div class="image-stack">
           <div class="image-card">
-            <img src="assets/raffle-flyer.jpg?v=20260824-v35" alt="BLE Division 269 raffle flyer image" />
+            <img src="assets/raffle-flyer.jpg?v=20260824-v36" alt="BLE Division 269 raffle flyer image" />
           </div>
           <div class="image-card">
-            <img src="assets/raffle-ticket.jpg?v=20260824-v35" alt="BLE Division 269 raffle ticket image" />
+            <img src="assets/raffle-ticket.jpg?v=20260824-v36" alt="BLE Division 269 raffle ticket image" />
           </div>
         </div>
       </div>
@@ -550,7 +531,7 @@
               Please include your <strong>name, phone number, and number of tickets</strong> with your check.
             </p>
             <p class="next-note">
-              Or continue below for the Zelle QR code.
+              Or continue below for Zelle payment instructions.
             </p>
           </div>
         </div>
@@ -565,28 +546,44 @@
               <div class="label">Pay with Zelle</div>
               <h2>Purchase Your Tickets</h2>
               <p>
-                Please use the Zelle QR code below to purchase your tickets.
+                To keep the payment process simple across different banks, please use Zelle through your own banking app.
                 When sending your payment, include your <strong>name, phone number, and number of tickets</strong>.
               </p>
+
               <a
                 class="btn primary"
-                href="https://enroll.zellepay.com/qr-codes?data=eyJuYW1lIjoiQlJPVEhFUkhPT0QgT0YgTE9DT01PVElWRSBFTkdJTkVFUlMgQU5EIiwiYWN0aW9uIjoicGF5bWVudCIsInRva2VuIjoibWdhcnppYW5vQGJsZWRpdmlzaW9uMjY5LmNvbSJ9"
+                href="https://enroll.zellepay.com/"
                 target="_blank"
                 rel="noopener"
-              >Pay with Zelle</a>
+              >Open Zelle / Find Your Bank</a>
+
               <p class="zelle-address">
                 Send Zelle payment to:<br>
                 <strong>mgarziano@bledivision269.com</strong>
               </p>
+
               <button class="copy-email-btn" id="copyEmailButton" type="button">
                 Click Here to Copy Email Address
               </button>
+
+              <p class="zelle-note">
+                In your banking app, choose <strong>Send Money with Zelle</strong> and paste the email address above.
+              </p>
             </div>
+
             <div>
-              <div class="qr-wrap">
-                <img src="assets/zelle-qr.jpg?v=20260824-v35" alt="Zelle QR code for BLE Division 269 raffle payment" />
+              <div class="zelle-steps">
+                <h3>Easy Zelle Steps</h3>
+                <ol>
+                  <li>Tap <strong>Open Zelle / Find Your Bank</strong>.</li>
+                  <li>Open your bank’s Zelle feature.</li>
+                  <li>Use <strong>mgarziano@bledivision269.com</strong> as the recipient.</li>
+                  <li>Enter the amount and include your name, phone number, and number of tickets.</li>
+                </ol>
+                <p class="zelle-small">
+                  If the button does not open your bank directly, simply open your banking app manually and use Zelle there.
+                </p>
               </div>
-              <div class="scan-label">Scan with your banking app</div>
             </div>
           </div>
         </div>
@@ -608,7 +605,7 @@
   </main>
 
   <footer>
-    <div class="wrap">BLE&T Division 269 • 2026 Raffle • Site Version 20260824-v35</div>
+    <div class="wrap">BLE&T Division 269 • 2026 Raffle • Site Version 20260824-v36</div>
   </footer>
 
   <div class="sticky-pay">
